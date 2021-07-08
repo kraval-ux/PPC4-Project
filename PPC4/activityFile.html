@@ -1,0 +1,109 @@
+<html>
+	<head>
+<style>
+    .row {
+      
+          display: grid;
+  width: 100%;
+  grid-template-columns: 100px 50px 50px 50px 50px 50px 50px;
+  align-items: start;
+  justify-content: space-between;
+        
+    }
+
+</style>
+</head>
+<body>
+
+<div id="LA" class="LA" style="height: 150px; background-color: #f6f977; text-align: left; font-size: 10pt; padding: 0; border: thin dotted #565454;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td width="160"><select id="activitySelect" onChange="typeLAChange(event)" style="text-align: left ; font-size: 12pt; font-family:Verdana, Geneva, Tahoma, sans-serif; opacity:70% ">
+      <option value="ReadWatchListen" title="Reading Watching Listening
+A form or cognitive learning, in which students learn through reading, watching or listening, or through following a guide. 
+Read Watch Listen (or Acquisition) is arguably the predominant form or learning in a formal context. 
+The learner needs to actively engage with the presentation, and the teacher has to encourage their attention and interest by structuring and presenting the ideas and information appropriately. ">Read Watch Listen</option>
+        <option value="Investigate" title="Learning through investigation - research
+A form of cognitive learning, in which students learn through researching, reading and using their skills in critical thinking to answer a question or solve a given problem. Learning through Investigation (Inquiry) provides students with a focus for their inquiry, resources they will need, and a proposed method of working to guide their learning process. It refers to the active learning needed to complement learning through acquisition. The resource may include the teacher, but tends to focus on books, papers, reports, and digital resources. 
+The teacher's main role is to ensure that: 
+- the resources needed are available, 
+- the focus if the inquiry is well-described, and 
+- the process is well supported, enabling students to be guided if needed. 
+Working in a library, or with a textbook, are the familiar forms of learning through inquiry; working with online resources, digital libraries and search engines to ensure their understanding. ">Investigate</option>
+        <option value="Discuss" title="Discursive learning
+A form or cognitive learning, in which students learn through dialogue with each other and/or with the teacher. Learning through discussion is used for meeting the requirements of the social constructivist approach to learning, which recognises the importance and value of the social aspects or learning. Students are given a topic, and use the discussion process to practice: 
+- describing or articulating their understanding and 
+- listening. commenting, and negotiating ideas with others. 
+The teacher's role is to guide the focus of the discussion, to suggest whether it should take the form of a debate or a dialogue, and to ensure that students reflect on what they learned. ">Discuss</option>
+        <option value="Practice" title="Learning through Practice
+A form of cognitive learning, in which students learn through acting to achieve a task goal given to them by the teacher - often in order to test their ability to apply their theoretical knowledge. Learning through practice, or experience, is essential if theory is to be grounded in practice, or if its application to practice is to be fully understood. Students will typically be given an exercise to carry out in some task environment, designed to link to the theoretical concepts they have to learn. The teacher's role is to ensure that: 
+- the experience does indeed link to the theory, 
+- students are suitably challenged to connect that experience to the theory. 
+- students receive feedback, either from the environment, or from the teacher, to enable them to reflect and extend their theoretical understanding; and 
+- students have the chance to revise their actions in the light of that feedback, so they can improve their practice.">Practice</option>
+        <option value="Collaborate" title="Collaborative learning 
+A learning approach in which students work in pairs or small groups to produce an output. Collaborative learning combines social learning with experiential learning or inquiry-based learning in the sense that students work together in pairs or small groups to produce an output of some kind. It could be something as extensive as a report, or as specific as a problem-solution, or an explanation. Its value is that it combines the value of all the other approaches. It is therefore closel'y as with learning through production. 
+Pedagogic characteristics 
+The teacher defines the goal to achieve a collective output through students working together, discussing and challenging each others ideas and products in the process. Feedback is partly in the form or the apparent success or the output in achieving the goal, and also from the teacher's evaluation of its quality and the process undertaken by the students. 
+Advantages: As for the other approaches listed above, with the additional benefit of giving students experience and practice in team working. 
+Disadvantages: As (or the other approaches listed above, with the additional disadvantage that if the team does not work well together individual learners are disadvantaged.">Collaborate</option>
+        <option value="Produce" title="Learning by Production   
+A form of cognitive reaming, in which students learn through producing some kind of artefact (e.g. written, constructed or performed). 
+Learning through production refers to activities where the student demonstrates the outcome of their learning, typically by producing something, e.g. an essay, a report, or a design. The process should enable the student to: 
+- consolidate what they have learned, perhaps over more than one topic, and 
+- link theory to practice. 
+It should provide a more satisfying output than simply working through a set of exercises.
+Through synthesising their ideas in order to articulate or express what they have learned, students should be challenged and motivated the students to reflect on the depth of their understanding. They should be able to return to the inquiry, experience, or discussion activities if they are uncertain. ">Produce</option>
+      </select></td>
+        <td width="20" style="font-size: 10pt;">Group:</td>
+        <td width="10"><textarea id ="groupSize" rows="1" maxlength="3" style="max-height: 20; max-width: 35; resize: none; font-size: 12pt;">1</textarea></td>
+        <td width="20"><input type="button" name="Synch" id="SynchButton" value="Asynchronous" width="60" onClick="toggleSynch(event)"></td>
+        <td width="10" style="font-size: 10pt;">Duration</td>
+        <td width="10"><textarea id ="DurationAct"  maxlength="3" style="max-lines: 1; rows: 1; max-width: 35; max-height: 20; resize: none;font-size: 12pt;" onkeyup="recalculateTimes(0)">10</textarea></td>
+		  <td width="10" style="font-size: 10pt;">min</td>
+        <td width="30"><button style="height: 20; width: 30; font-size: 12pt;" onClick="closeActivityBox(event)">X</button></td>
+      </tr>
+    </tbody>
+  </table> 
+
+<div style="padding: 1pt;">
+  <table width="100%" height="85%" border="0" align="left" cellpadding="0">
+    <tbody>
+      <tr>
+        <td width="92%"><textarea id="ActText" onkeyup="resizeTextArea(event)" wrap="hard" style="height: 118px; width: 100%; max-width: 100%; min-height: 120; background-color: white; resize: none; font-size: 12pt; font-family: Verdana, Geneva, Tahoma, sans-serif; padding-left: 5; padding-top: 3;"></textarea>
+          </td>
+    
+        <td width="8%">
+			<button id="teacherPresence" title="..." onClick="toggleTeachPresent(event)"><img src="images/teacherOff.gif"/></button>
+			<button id="addResource" onClick="addResourceToLA(event)" title="Add resources ..."><img src="images/andy-tools-hammer-spanner-clip-art.png"/></button>
+			<button id="attachResource" onClick="attachResources(event)" title="Add resources ..."><img src="images/andy-tools-hammer-spanner-clip-art.png"/></button>
+			
+		  </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<script>
+	
+	var LearningActivityNode = new Array;
+
+        $(document).ready(function(){
+      var teacherPresent=0;
+});
+/// start drop down
+
+  /*  $("#teacherPresence").click(function (e) {
+			  
+        alert("ahoj" + teacherPresent);
+        
+        if (teacherPresent==0)
+          {
+            //$("#teacherPresence").toggle("<img src='images/andy-tools-hammer-spanner-clip-art.png'/>");
+          }
+  });*/
+
+        </script>
+</body>
+    </html>

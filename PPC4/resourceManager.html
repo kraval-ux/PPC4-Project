@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+	
+	 <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen, projection"/>
+	
+	<!--Accordion  -->
+	 <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.min.css"  type="text/css"/>
+        <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="./css/textileToolbar.css">
+		
+		
+
+		
+		
+		<link rel="stylesheet" href="./css/jquery.dialog.css">
+		<script src="./js/jquery.js"></script>
+		<script src="./js/jquery.dialog.js"></script>
+		
+	
+ 
+        <script src="./js/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+        <script src="./js/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="./js/js.js" type="text/javascript"></script>
+        <script type="text/javascript" language="javascript" src="./js/hoverIntent.js"></script>
+        <script type="text/javascript" language="javascript" src="./js/autosize.js"></script>
+	
+	<!--Dialog-->
+	
+	
+	
+	<script>
+			// accordion 
+var acc = document.getElementsByClassName("accordiaolgue");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+	// end of acordion
+		</script>
+</head>
+
+<body>
+
+	
+	
+	<table width="100%" border="0" class = "group">
+  <tbody>
+    <tr>
+	
+      <td width="40%" rowspan="5">
+    
+		  			 <button class="accordiaolgue">+ RWL </button>
+<div class="panel">
+	
+        <input type="radio" name="typeRes" value="Presentation">
+        <span style="font-size: 12px">Presentation</span>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Guide">
+      Guide</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Video">
+      Audio or Video</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Video(embed)" id="RWL_3" >
+      Audio or Video (embed)</span></p>
+	
+		</div>
+		  
+		  	<button class="accordiaolgue">+ Investigate</button>
+<div class="panel">
+      <p>
+        <input type="radio" name="typeRes" value="Book / Chapter" id="Invest_0">
+        <span style="font-size: 12px">Book / Chapter </span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Article" id="Invest_1">
+      Article</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Case Study" id="Invest_2">
+      Case Study</span></p>
+	
+	</div>
+
+<button class="accordiaolgue" >+ Discuss</button>
+<div class="panel">
+      <p>
+        <input type="radio" name="typeRes" value="Discussion Forum" id="Discuss_0">
+        <span style="font-size: 12px">Discussion Forum</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Web-Conferencing" id="Discuss_1">
+      Web-Conferencing</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Dialogue Game" id="Discuss_2">
+      Dialogue Game</span></p>
+	
+</div>
+		  
+		  <button class="accordiaolgue" >+ Practice</button>
+<div class="panel">
+      <p>
+        <input type="radio" name="typeRes" value="Simulation" id="Prac_0">
+        <span style="font-size: 12px">Simulation</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Modelling Tool" id="Prac_1">
+      Modelling Tool</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Other" id="Prac_2">
+      Other</span></p>
+	
+</div>
+	
+<button class="accordiaolgue" >+ Collaborate &amp; Produce</button>
+<div class="panel">
+      <p>
+        <input type="radio" name="typeRes" value="Portfolio" id="ProdCollab_3">
+        <span style="font-size: 12px">Portfolio</span></p>
+      <p>
+        <span style="font-size: 12px">
+      <input type="radio" name="typeRes" value="Simulation" id="ProdCollab_1">
+      Simulation</span></p>
+      <p>
+        <span style="font-size: 12px">
+        <label>
+          <input type="radio" name="typeRes" value="Wiki" id="ProdCollab_2">
+          Wiki</label>
+        </span></p>   
+	
+</div>
+		  
+		  
+		  
+  
+     </td>
+		 <td width="8%" rowspan="4" bgcolor="#585555">&nbsp;<span style="font-size: 16px; background-color: grey;"></span></td>
+            <td width="50%" style="font-size: 16px">Title<input size="100%" id = "title" style="font-size: 16px"></td>
+          </tr>
+          <tr>
+            <td>URL <input size="100%" id = "url" style="font-size: 16px"></td>
+          </tr>
+			<tr>
+			  <td><button style="font-size: 16px; text-align: right;" onclick="attachToList()">Attach</button></td>
+          </tr>
+			<tr>
+			  <td>
+				 <b>Resources Attached</b>
+			  <p>
+				  
+			    <textarea id="listResources" style="resize: none; font-size: 16px" rows="15" cols="60" readonly></textarea>
+			  </p>
+			  <p>&nbsp; </p></td>
+		</tr>
+			<tr>
+			  <td colspan="2">&nbsp;</td>
+    </tr>
+	  </tbody>
+	  </table>
+</body>
+</html>
